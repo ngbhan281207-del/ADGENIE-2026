@@ -1,0 +1,8 @@
+{
+  "name": "caption-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trình tạo caption quảng cáo bằng AI",
+  "scripts": { "start": "node server.js", "test": "node test.js" },
+  "engines": { "node": ">=18" }
+}

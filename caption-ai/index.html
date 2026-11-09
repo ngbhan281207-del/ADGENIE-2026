@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta name="description" content="Caption AI: sinh caption, headline và hashtag cho fanpage trong 10 giây.">
+<title>AdGenie - Biến ý tưởng thành content thực</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="float" id="float" aria-hidden="true"></div>
+<div class="bg" aria-hidden="true">
+  <img class="s1" src="assets/facebook.png" alt="">
+  <img class="s2" src="assets/instagram.png" alt="">
+  <img class="s3" src="assets/threads.png" alt="">
+  <img class="s4" src="assets/youtube.png" alt="">
+  <img class="s5" src="assets/instagram.png" alt="">
+  <img class="s6" src="assets/facebook.png" alt="">
+  <img class="s7" src="assets/youtube.png" alt="">
+</div>
+<div class="wrap">
+  <section class="hero">
+    <h2 class="text-slate-900 dark:text-cyan-400 transition-colors duration-200" class="title-gradient"><em>AdGenie</em></h2>
+    <p>Biến cạn ý tưởng thành bộ content hoàn hảo chỉ trong vòng vài giây.</p>
+    <div class="theme-bar"><span class="theme-chip" id="theme-chip"><span id="theme-ico">✨</span><b id="theme-name">Chủ đề giao diện</b></span><div class="swatches" id="swatches" role="group" aria-label="Chọn màu giao diện"></div></div>
+  </section>
+
+  <main class="grid">
+    <section class="glass card" aria-labelledby="t-form">
+      <div class="head"><h3 id="t-form"><i data-lucide="pen-line"></i> Thông tin sản phẩm</h3><span class="mute">Tất cả đều bắt buộc</span></div>
+      <p class="lbl">Thử nhanh mẫu có sẵn</p>
+      <div class="chips">
+        <button class="chip" type="button" data-sample="0">☕ Cà phê mộc</button>
+        <button class="chip" type="button" data-sample="1">👗 Váy hoa hè</button>
+        <button class="chip" type="button" data-sample="2">🍜 Bún bò Huế</button>
+      </div>
+      <form id="form" novalidate>
+        <label class="lbl" for="name">Tên sản phẩm / dịch vụ</label>
+        <input id="name" class="field" maxlength="80" autocomplete="off" placeholder="Ví dụ: Serum Vitamin C dưỡng sáng da" aria-describedby="e-name">
+        <p class="err" id="e-name"></p>
+        <label class="lbl" for="desc">Mô tả ngắn <span class="mute" id="count">0/500</span></label>
+        <textarea id="desc" class="field" rows="3" maxlength="600" placeholder="Ví dụ: Giúp da sáng đều màu, thấm nhanh, không bết dính, có ưu đãi khi mua combo." aria-describedby="e-desc"></textarea>
+        <p class="err" id="e-desc"></p>
+        <label class="lbl" for="aud">Đối tượng khách hàng</label>
+        <input id="aud" class="field" maxlength="100" autocomplete="off" placeholder="Ví dụ: Nhân viên văn phòng 22-30 tuổi, da dầu mụn" aria-describedby="e-aud">
+        <p class="err" id="e-aud"></p>
+        <p class="lbl" id="l-tone">Tông giọng</p>
+        <div class="tones" role="group" aria-labelledby="l-tone">
+          <button type="button" class="tone" data-tone="hai-huoc" aria-pressed="false">😄 Hài hước / Bắt trend</button>
+          <button type="button" class="tone" data-tone="trang-trong" aria-pressed="false">🎩 Trang trọng / Uy tín</button>
+          <button type="button" class="tone" data-tone="tre-trung" aria-pressed="true">✨ Trẻ trung / Năng động</button>
+        </div>
+        <p class="err" id="e-tone"></p>
+        <p class="lbl" id="l-len">Độ dài caption</p>
+        <div class="chips" role="group" aria-labelledby="l-len">
+          <button type="button" class="chip len" data-len="short" aria-pressed="false">Ngắn gọn</button>
+          <button type="button" class="chip len" data-len="standard" aria-pressed="true">Tiêu chuẩn</button>
+          <button type="button" class="chip len" data-len="long" aria-pressed="false">Chi tiết</button>
+        </div>
+        <p class="lbl" id="l-sp">Gia vị cảm xúc <span class="mute" id="boost-l">Tắt</span></p>
+        <div class="chips" role="group" aria-labelledby="l-sp">
+          <button type="button" class="chip spice" data-spice="none" aria-pressed="true">Không</button>
+          <button type="button" class="chip spice" data-spice="genz" aria-pressed="false">🔥 Gen Z</button>
+          <button type="button" class="chip spice" data-spice="fomo" aria-pressed="false">⏰ FOMO</button>
+          <button type="button" class="chip spice" data-spice="story" aria-pressed="false">💌 Tâm sự</button>
+          <button type="button" class="chip spice" data-spice="curious" aria-pressed="false">🤔 Tò mò</button>
+        </div>
+        <input id="boost" class="range" type="range" min="0" max="3" step="1" value="0" aria-label="Mức gia vị cảm xúc, từ ít đến nhiều">
+        <div class="scale"><span>Ít</span><span>Nhiều</span></div>
+        <button id="go" class="btn gold" type="submit"><i data-lucide="wand-2"></i> <span>Tạo Caption</span></button>
+        <p class="hint">Phím tắt: Ctrl + Enter</p>
+      </form>
+    </section>
+
+    <section class="glass card" aria-labelledby="t-res" aria-live="polite">
+      <div class="head"><h3 id="t-res"><i data-lucide="file-text"></i> Kết quả</h3>
+        <button id="regen" class="btn ghost" type="button" hidden><i data-lucide="refresh-cw"></i> Tạo lại</button></div>
+      <div id="banner" class="note" role="status" hidden><i data-lucide="info"></i> Chưa kết nối được AI, đang hiển thị nội dung mẫu</div>
+      <div id="empty" class="empty"><span class="orb"><i data-lucide="sparkle"></i></span><p>Chưa có nội dung. Điền thông tin bên trái rồi bấm “Tạo nội dung”.</p></div>
+      <div id="out" hidden>
+        <h4><i data-lucide="heading"></i> 3 headline</h4><div id="headlines" class="stack"></div>
+        <h4><i data-lucide="message-square"></i> 3 caption <span class="mute">chạm vào chữ để chỉnh sửa</span></h4><div id="captions" class="stack"></div>
+        <h4><i data-lucide="hash"></i> 5 hashtag <button id="copy-tags" class="mini" type="button">Copy tất cả</button></h4><div id="hashtags" class="tags"></div>
+        <p class="mute small">Chỉ số 🔥 là điểm ước tính bằng thuật toán nội bộ, không phải dữ liệu thời gian thực. Gợi ý hashtag ngách:</p><div id="niche" class="tags"></div>
+        <h4><i data-lucide="megaphone"></i> CTA gợi ý theo ngành <span class="mute" id="cta-ind"></span></h4><div id="cta" class="tags"></div>
+        <div class="row acts"><button id="exp-md" class="mini" type="button">Xuất .md</button><button id="exp-txt" class="mini" type="button">Xuất .txt</button><span class="mute">Chọn caption ở mục “Xem trước” để gắn CTA, hook</span></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="grid2">
+    <section class="glass card" aria-labelledby="t-hook">
+      <div class="head"><h3 id="t-hook"><i data-lucide="zap"></i> Viral Hook Generator</h3></div>
+      <p class="mute">Dòng mở đầu quyết định người đọc có dừng lại hay không. Chọn chiến lược để nhận 5 hook, rồi chèn vào đầu caption.</p>
+      <div class="chips">
+        <button class="chip strat" type="button" data-s="question" aria-pressed="true">❓ Câu hỏi gây sốc</button>
+        <button class="chip strat" type="button" data-s="number" aria-pressed="false">🔢 Đòn bẩy con số / thống kê</button>
+        <button class="chip strat" type="button" data-s="truth" aria-pressed="false">💣 Bóc trần sự thật (Truth bomb)</button>
+        <button class="chip strat" type="button" data-s="fomo" aria-pressed="false">⏳ FOMO khẩn cấp</button>
+      </div>
+      <button id="hook-go" class="btn gold slim" type="button"><i data-lucide="wand-2"></i> <span>Tạo 5 hook</span></button>
+      <div id="hooks" class="stack"></div>
+    </section>
+
+    <section class="glass card" aria-labelledby="t-prev">
+      <div class="head"><h3 id="t-prev"><i data-lucide="smartphone"></i> Xem trước &amp; đăng nhanh</h3>
+        <select id="pv-pick" class="field sel" aria-label="Chọn caption để xem trước"><option value="0">Caption 1</option><option value="1">Caption 2</option><option value="2">Caption 3</option></select></div>
+      <div class="chips" role="tablist" aria-label="Nền tảng">
+        <button class="chip ptab" type="button" data-p="facebook" aria-pressed="true">Facebook Post</button>
+        <button class="chip ptab" type="button" data-p="instagram" aria-pressed="false">Instagram Post/Reels</button>
+        <button class="chip ptab" type="button" data-p="tiktok" aria-pressed="false">TikTok Caption</button>
+        <button class="chip ptab" type="button" data-p="threads" aria-pressed="false">Threads</button>
+      </div>
+      <div id="mock" class="mock"><p class="mute">Tạo caption để xem trước bài đăng.</p></div>
+      <p id="pv-note" class="pv-note"></p>
+      <div class="row acts">
+        <button id="pv-copy" class="mini" type="button">Copy bài đăng</button>
+        <button id="pv-threads" class="mini" type="button">Đăng lên Threads</button>
+        <button id="pv-share" class="mini" type="button">Chia sẻ…</button>
+        <button id="pv-open" class="mini" type="button">Copy &amp; mở Facebook</button>
+        <button id="pv-cal" class="mini" type="button">+ Thêm vào lịch tuần</button>
+      </div>
+    </section>
+  </section>
+
+  <section class="glass card hist" aria-labelledby="t-cal">
+    <div class="head"><h3 id="t-cal"><i data-lucide="calendar-days"></i> Lịch chiến dịch tuần</h3>
+      <div class="row"><button id="cal-week" class="mini" type="button">⚡ Tạo chiến dịch tuần</button><button id="cal-md" class="mini" type="button">Xuất .md</button><button id="cal-json" class="mini" type="button">Xuất .json</button><button id="cal-clear" class="mini danger" type="button">Xóa lịch</button></div></div>
+    <p class="mute">Thứ 2: giới thiệu (trang trọng) · Thứ 4: tương tác (hài hước) · Thứ 6: chốt sale (trẻ trung). Nhập sản phẩm rồi bấm “Tạo chiến dịch tuần” để điền cả 3 bài một lần.</p>
+    <div id="cal" class="calgrid"></div>
+  </section>
+
+  <section class="glass card hist" aria-labelledby="t-his">
+    <div class="head"><h3 id="t-his"><i data-lucide="history"></i> Lịch sử đã tạo</h3><button id="clear" class="mini danger" type="button" hidden>Xóa tất cả</button></div>
+    <p id="h-empty" class="mute">Chưa có lịch sử. Các lần tạo được lưu ngay trên trình duyệt này.</p>
+    <ul id="history" class="hgrid"></ul>
+  </section>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+<script src="features.js"></script>
+<script src="fx.js"></script>
+</body>
+</html>
